@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta author="Sidali" />
+  <title>EmployeeTrack - Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard">
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-right">
+          <div class="user-profile">
+            <img src="photoProfile.jpg" alt="Admin">
+            <span>Sidali</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <div class="dashboard-content">
+        <!-- Stats Cards -->
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-icon blue">
+              <i class="fas fa-user-group"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Total Employees</h3>
+              <p class="stat-value">53</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon green">
+              <i class="fas fa-user-check"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Present Today</h3>
+              <p class="stat-value">45</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon red">
+              <i class="fas fa-user-clock"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Absent Today</h3>
+              <p class="stat-value">5</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon orange">
+              <i class="fas fa-hourglass-half"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Late Arrivals</h3>
+              <p class="stat-value">3</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Attendance Chart Section -->
+        <div class="chart-section">
+          <div class="section-header">
+            <h2>Attendance Statistics</h2>
+            <div class="chart-filters">
+              <button class="active">Today</button>
+              <button>Week</button>
+              <button>Month</button>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="attendanceChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Employee List & Recent Activity -->
+        <div class="data-grid-container">
+          <div class="employee-table">
+            <div class="section-header">
+              <h2>Employee Attendance</h2>
+              <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search employees...">
+              </div>
+            </div>
+            
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>EMPLOYEE</th>
+                    <th>DEPARTMENT</th>
+                    <th>CHECK IN</th>
+                    <th>CHECK OUT</th>
+                    <th>STATUS</th>
+                    <th>HOURS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="employee-info">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson">
+                        <span>Sarah Johnson</span>
+                      </div>
+                    </td>
+                    <td>Marketing</td>
+                    <td>09:00 AM</td>
+                    <td>05:30 PM</td>
+                    <td><span class="status present">Present</span></td>
+                    <td>8.5h</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="employee-info">
+                        <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Michael Chen">
+                        <span>Michael Chen</span>
+                      </div>
+                    </td>
+                    <td>Engineering</td>
+                    <td>08:45 AM</td>
+                    <td>05:15 PM</td>
+                    <td><span class="status present">Present</span></td>
+                    <td>8.5h</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="employee-info">
+                        <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Emily Davis">
+                        <span>Emily Davis</span>
+                      </div>
+                    </td>
+                    <td>HR</td>
+                    <td>09:30 AM</td>
+                    <td>---</td>
+                    <td><span class="status late">Late</span></td>
+                    <td>2.5h</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="employee-info">
+                        <img src="https://randomuser.me/api/portraits/men/91.jpg" alt="David Wilson">
+                        <span>David Wilson</span>
+                      </div>
+                    </td>
+                    <td>Sales</td>
+                    <td>---</td>
+                    <td>---</td>
+                    <td><span class="status absent">Absent</span></td>
+                    <td>0h</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="employee-info">
+                        <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Anna Smith">
+                        <span>Anna Smith</span>
+                      </div>
+                    </td>
+                    <td>Design</td>
+                    <td>08:55 AM</td>
+                    <td>05:20 PM</td>
+                    <td><span class="status present">Present</span></td>
+                    <td>8.4h</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="recent-activity">
+            <h2>Recent Activity</h2>
+            <div class="activity-list">
+              <div class="activity-item">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson">
+                <div class="activity-details">
+                  <h4>Sarah Johnson</h4>
+                  <p>checked in</p>
+                  <span class="activity-time">09:00 AM</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Michael Chen">
+                <div class="activity-details">
+                  <h4>Michael Chen</h4>
+                  <p>checked in</p>
+                  <span class="activity-time">08:45 AM</span>
+                </div>
+              </div>
+              <div class="activity-item">
+                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Emily Davis">
+                <div class="activity-details">
+                  <h4>Emily Davis</h4>
+                  <p>checked in</p>
+                  <span class="activity-time">09:30 AM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
